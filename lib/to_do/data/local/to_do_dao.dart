@@ -1,6 +1,6 @@
 import 'package:drift/drift.dart';
-import 'package:frist_project/data_source/app_database.dart';
-import 'package:frist_project/to_do/data/local/to_do_table.dart';
+import 'package:to_do_flutter/data_source/app_database.dart';
+import 'package:to_do_flutter/to_do/data/local/to_do_table.dart';
 
 part 'to_do_dao.g.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:frist_project/to_do/presentation/to_do_notifier.dart';
-import 'package:frist_project/to_do/widgets/custom_app_bar.dart';
+import 'package:to_do_flutter/to_do/presentation/to_do_notifier.dart';
+import 'package:to_do_flutter/to_do/widgets/custom_app_bar.dart';
 
 class CreateToDoScreen extends ConsumerStatefulWidget {
   const CreateToDoScreen({super.key});
@@ -26,6 +26,19 @@ class _CreateToDoScreenState extends ConsumerState<CreateToDoScreen> {
     notifier.insertToDo(name: title, des: desController.text.trim());
 
     Navigator.pop(context);
+  }
+
+  @override
+  void setState(VoidCallback fn) {
+    super.setState(fn);
+    if (titleController.text.isNotEmpty) setState(() => _titleError = false);
+  }
+
+  @override
+  void dispose() {
+    super.dispose();
+    titleController.dispose();
+    desController.dispose();
   }
 
   @override
@@ -85,7 +98,10 @@ Widget _textField({
   controller: controller,
   cursorColor: Colors.blue,
   decoration: InputDecoration(
-    border: InputBorder.none,
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(12),
+      borderSide: BorderSide(color: Colors.blue, width: 1.5),
+    ),
     prefixIcon: Icon(prefixIcon, color: Colors.blue),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(12),

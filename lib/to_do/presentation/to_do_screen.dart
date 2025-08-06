@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:frist_project/routes/NavigationRoute.dart';
-import 'package:frist_project/to_do/presentation/to_do_notifier.dart';
-import 'package:frist_project/to_do/widgets/custom_app_bar.dart';
+import 'package:to_do_flutter/routes/NavigationRoute.dart';
+import 'package:to_do_flutter/to_do/presentation/to_do_notifier.dart';
+import 'package:to_do_flutter/to_do/widgets/custom_app_bar.dart';
 
 class ToDoScreen extends ConsumerWidget {
   const ToDoScreen({super.key});

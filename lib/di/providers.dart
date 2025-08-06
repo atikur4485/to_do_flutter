@@ -3,9 +3,9 @@ import 'dart:io';
 import 'package:drift/drift.dart';
 import 'package:drift/native.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:frist_project/data_source/app_database.dart';
-import 'package:frist_project/to_do/data/local/to_do_dao.dart';
-import 'package:frist_project/to_do/data/repository/to_do_repository.dart';
+import 'package:to_do_flutter/data_source/app_database.dart';
+import 'package:to_do_flutter/to_do/data/local/to_do_dao.dart';
+import 'package:to_do_flutter/to_do/data/repository/to_do_repository.dart';
 import 'package:path/path.dart' as p;
 import 'package:path_provider/path_provider.dart';
 
