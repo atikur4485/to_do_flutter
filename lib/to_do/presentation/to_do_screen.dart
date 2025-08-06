@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:to_do_flutter/routes/NavigationRoute.dart';
 import 'package:to_do_flutter/to_do/presentation/to_do_notifier.dart';
-import 'package:to_do_flutter/to_do/widgets/custom_app_bar.dart';
 
 class ToDoScreen extends ConsumerWidget {
   const ToDoScreen({super.key});
@@ -20,21 +19,23 @@ Widget _toDoScreenContent({
   required BuildContext context,
 }) {
   final state = ref.watch(toDoNotifierProvide);
-
+  print("build");
   return Scaffold(
     appBar: _appBar(),
     floatingActionButton: _toDoFab(
       onPressed: () => _fabOnPressed(context: context),
     ),
-    body: state.when(
-      loading: () => const Center(child: CircularProgressIndicator()),
-      error: (e, _) => Center(child: Text('Error: ${e.toString()}')),
-      data: (todos) => ListView.builder(
-        itemCount: todos.length,
-        itemBuilder: (context, index) {
-          final todo = todos[index];
-          return ListTile(title: Text(todo.name)); // example
-        },
+    body: Consumer(
+      builder: (context, ref, child) => state.when(
+        loading: () => const Center(child: CircularProgressIndicator()),
+        error: (e, _) => Center(child: Text('Error: ${e.toString()}')),
+        data: (todos) => ListView.builder(
+          itemCount: todos.length,
+          itemBuilder: (context, index) {
+            final todo = todos[index];
+            return ListTile(title: Text(todo.name)); // example
+          },
+        ),
       ),
     ),
   );
